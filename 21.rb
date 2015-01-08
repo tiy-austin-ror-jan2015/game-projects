@@ -6,14 +6,14 @@ dealer_cards_in_hand = []
 
 
 def get_card
-  rand(1..11)
+  rand(1..11) # Clever - JH
 end
 
   cards_in_hand.push(get_card)
-  
+  #^^ This line doesn't need to be indented - JH
 
 def gambler_turn
-while @gamestart == true
+while @gamestart == true #<< The while loop should be indented since it is inside the gambler_turn method - JH
   @gambler_card_values = 0
   puts "You have the following cards: "
   cards_in_hand.each do |card|
@@ -23,7 +23,7 @@ while @gamestart == true
   puts "Card values: #{@user_card_values}"
   puts "Do you want to hit or stay (h to hit, s to stay)?"
   hit_or_stay = gets.chomp
-  if hit_or_stay == 'hit me'
+  if hit_or_stay == 'hit me' #I like this a lot, but it goes against your instructions that just ask for 'h' - JH
     new_card = get_card
     cards_in_hand.push(new_card)
     puts "This is your new card #{new_card}"
@@ -40,17 +40,18 @@ end
   dealer_cards_in_hand.push(get_card)
   dealer_cards_in_hand.push(get_card)
 
-def dealer_turn
- 
+def dealer_turn 
+  
+  #^ This empty line doesn't need to be here - JH
   @dealer_card_values = 0
   @cards_in_hand.each do |card|
     puts card
     @dealer_card_values += card
   end
-  check_win
+  check_win # I don't see any check_win method - JH
 end
 
-def who_won  
+def who_won  # I like this who_won method, but it doesn't seem to be used anywhere - JH
   if @gambler_card_values > 21
      @gamestart = false
     puts "BUST"
